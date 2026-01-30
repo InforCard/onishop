@@ -1,6 +1,6 @@
 let products = [];
 let currentPage = 1;
-const itemsPerPage = 10;
+const itemsPerPage = 16;
 
 // Fetch products from JSON file
 async function fetchProducts() {
