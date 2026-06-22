@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OniShop — Mua sắm cùng Oni</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OniShop — Mua sắm cùng Oni</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+    <style>
 :root {
   --bg:   #fff9f7;
   --card: #ffffff;
@@ -60,7 +62,7 @@ header{background:#fff;border-bottom:2px solid var(--bdr);position:sticky;top:0;
 .cat-bar::-webkit-scrollbar{display:none;}
 .cat-inner{
   padding:14px 24px;
-  display:inline-flex; /* inline-flex so bar scrolls naturally */
+  display:inline-flex;
   gap:8px;
   min-width:100%;
 }
@@ -97,30 +99,43 @@ header{background:#fff;border-bottom:2px solid var(--bdr);position:sticky;top:0;
 .vbtn.on{background:var(--acc);border-color:var(--acc);color:#fff;}
 
 /* GRID */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:100%;}
 
 /* CARD */
 .card{background:var(--card);border:2px solid var(--bdr);border-radius:var(--r);overflow:hidden;transition:all .22s;box-shadow:var(--sh);}
 .card:hover{transform:translateY(-5px);box-shadow:var(--shh);border-color:rgba(238,77,45,.2);}
 .cimg{aspect-ratio:1;overflow:hidden;background:#fafafa;position:relative;cursor:pointer;}
 .cimg img{width:100%;height:100%;object-fit:cover;transition:transform .32s;display:block;}
+.card .cimg {
+  position: relative;
+}
+.c-code {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-family: monospace;
+  backdrop-filter: blur(4px);
+}
 .card:hover .cimg img{transform:scale(1.07);}
 .cnoimg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:46px;background:linear-gradient(135deg,#fff0ec,#fff8f5);}
 .cbody{padding:12px;}
 .ccat{margin-bottom:6px;}
 .ccat-badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
 /* category badge colors */
-.b-quan-nam{background:rgba(52,152,219,.1);color:#3498db;}
-.b-quan-nu{background:rgba(231,76,60,.1);color:#e74c3c;}
-.b-ao-nam{background:rgba(46,204,113,.1);color:#27ae60;}
-.b-ao-nu{background:rgba(241,196,15,.1);color:#d4a017;}
-.b-giay{background:rgba(155,89,182,.1);color:#8e44ad;}
-.b-dep{background:rgba(230,126,34,.1);color:#d35400;}
-.b-my-pham{background:rgba(238,77,45,.1);color:#ee4d2d;}
-.b-do-an-vat{background:rgba(26,188,156,.1);color:#16a085;}
-.b-set{background:rgba(255,120,73,.1);color:#ff7849;}
-.b-chan-vay{background:rgba(253,167,87,.1);color:#d4870a;}
-.cname{font-size:13px;font-weight:700;line-height:1.45;margin-bottom:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.b-do-nam{background:rgba(52,152,219,.1);color:#3498db;}
+.b-do-nu{background:rgba(231,76,60,.1);color:#e74c3c;}
+.b-bach-hoa{background:rgba(46,204,113,.1);color:#27ae60;}
+.b-my-pham{background:rgba(241,196,15,.1);color:#d4a017;}
+.b-set{background:rgba(155,89,182,.1);color:#8e44ad;}
+.b-phu-kien{background:rgba(230,126,34,.1);color:#d35400;}
+.b-do-doi{background:rgba(238,77,45,.1);color:#ee4d2d;}
+.cname{font-size:13px;font-weight:700;line-height:1.45;margin-bottom:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-clamp:2;}
 .cbuy{display:block;width:100%;padding:10px;background:linear-gradient(135deg,var(--acc),var(--ac2));color:#fff;font-family:var(--f);font-size:13px;font-weight:800;border:none;border-radius:9px;cursor:pointer;text-decoration:none;text-align:center;transition:all .18s;}
 .cbuy:hover{transform:translateY(-1px);box-shadow:0 4px 18px rgba(238,77,45,.4);}
 
@@ -131,6 +146,7 @@ header{background:#fff;border-bottom:2px solid var(--bdr);position:sticky;top:0;
 .limg{width:88px;height:88px;border-radius:10px;object-fit:cover;background:#fafafa;flex-shrink:0;display:block;}
 .lnoimg{width:88px;height:88px;border-radius:10px;background:linear-gradient(135deg,#fff0ec,#fff8f5);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;}
 .lbody{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;}
+.lcode{font-size:10px;color:var(--t2);font-family:monospace;font-weight:600;}
 .lname{font-size:15px;font-weight:700;line-height:1.4;}
 .lbuy{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:linear-gradient(135deg,var(--acc),var(--ac2));color:#fff;font-family:var(--f);font-size:13px;font-weight:800;border-radius:9px;text-decoration:none;transition:all .18s;align-self:flex-start;}
 .lbuy:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(238,77,45,.4);}
@@ -148,274 +164,192 @@ header{background:#fff;border-bottom:2px solid var(--bdr);position:sticky;top:0;
 .empty{text-align:center;padding:80px 20px;}
 .empty-ic{font-size:58px;margin-bottom:14px;}
 .empty h3{font-size:20px;font-weight:800;margin-bottom:8px;}
-.empty p{font-size:14px;color:var(--t2);}
-.rst-btn{margin-top:16px;display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:var(--acc);color:#fff;font-family:var(--f);font-size:13px;font-weight:800;border:none;border-radius:10px;cursor:pointer;}
-.rst-btn:hover{background:#d63d1f;}
+.empty p{color:var(--t2);margin-bottom:20px;}
 
-/* PAGINATION */
-.pagiwrap{display:flex;justify-content:center;gap:8px;padding:40px 0 16px;}
-.pb{min-width:40px;height:40px;border-radius:10px;border:2px solid var(--bdr);background:var(--card);color:var(--t2);cursor:pointer;font-family:var(--f);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 12px;transition:all .18s;}
+/* PAGI */
+.pagiwrap{display:flex;justify-content:center;align-items:center;gap:6px;padding:28px 0 8px;flex-wrap:wrap;width:100%;}
+.pb{min-width:36px;height:36px;border-radius:8px;border:2px solid var(--bdr);background:var(--card);color:var(--t2);cursor:pointer;font-family:var(--f);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 10px;transition:all .15s;}
 .pb:hover,.pb.on{background:var(--acc);border-color:var(--acc);color:#fff;}
-.pb:disabled{opacity:.35;cursor:default;}
+.pb:disabled{opacity:.3;cursor:default;}
 
-/* FOOTER */
-footer{background:var(--card);border-top:2px solid var(--bdr);padding:28px 24px;text-align:center;color:var(--t2);font-size:13px;margin-top:32px;}
-footer strong{color:var(--txt);}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hi">
+        <a class="logo" href="#">
+          <div class="logo-ic">🛍️</div>
+          <div class="logo-nm"><em>Oni</em>Shop</div>
+        </a>
+        <div class="hsearch">
+          <span>🔍</span>
+          <input type="text" id="hsearch" placeholder="Tìm sản phẩm..."
+            oninput="applyAll()">
+        </div>
+      </div>
+    </header>
 
-/* ── RESPONSIVE ───────────────────────────── */
-
-/* Large desktop 1400px+ */
-@media(min-width:1400px){
-  .pgrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
-  .hero{padding:64px 24px 52px;}
-}
-
-/* Tablet landscape 768–1023px */
-@media(max-width:1023px){
-  .hi{padding:0 20px;}
-  .hsearch{max-width:360px;}
-  .wrap{padding:24px 20px 40px;}
-  .cat-inner{padding:12px 20px;}
-  .pgrid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;}
-  .hero{padding:44px 20px 34px;}
-  .limg,.lnoimg{width:80px;height:80px;}
-}
-
-/* Tablet portrait 600–767px */
-@media(max-width:767px){
-  .hi{padding:0 16px;height:58px;gap:12px;}
-  .logo-nm{font-size:18px;}
-  .logo-ic{width:34px;height:34px;font-size:15px;}
-  .hsearch{max-width:none;padding:9px 14px;}
-  .hero{padding:36px 16px 28px;}
-  .hero p{font-size:14px;}
-  .cat-inner{padding:10px 16px;gap:7px;}
-  .cat-pill{padding:7px 13px;font-size:12px;}
-  .wrap{padding:20px 16px 36px;}
-  .ssel{font-size:12px;padding:8px 12px;}
-  .pgrid{grid-template-columns:repeat(3,1fr);gap:12px;}
-  .cbody{padding:10px;}
-  .cname{font-size:12px;}
-  .cbuy{padding:8px;font-size:12px;}
-  .lcard{padding:12px;gap:12px;}
-  .limg,.lnoimg{width:76px;height:76px;}
-  .lname{font-size:14px;}
-  .lbuy{padding:8px 16px;font-size:12px;}
-  .pb{min-width:36px;height:36px;}
-  footer{padding:22px 16px;font-size:12px;}
-}
-
-/* Mobile 480–599px */
-@media(max-width:599px){
-  .pgrid{grid-template-columns:repeat(2,1fr);gap:10px;}
-  .sbar{gap:10px;}
-}
-
-/* Small mobile 320–479px */
-@media(max-width:479px){
-  .hi{padding:0 12px;height:54px;}
-  .logo-nm{font-size:16px;}
-  .hsearch{padding:8px 12px;}
-  .hero{padding:26px 12px 22px;}
-  .hero h1{letter-spacing:-.5px;}
-  .hero p{font-size:13px;}
-  .cat-inner{padding:9px 12px;gap:6px;}
-  .cat-pill{padding:6px 11px;font-size:11px;}
-  .wrap{padding:14px 10px 28px;}
-  .sbar{flex-direction:column;align-items:flex-start;}
-  .sopts{width:100%;justify-content:space-between;}
-  .ssel{flex:1;}
-  .pgrid{grid-template-columns:repeat(2,1fr);gap:8px;}
-  .cbody{padding:8px;}
-  .cname{font-size:11px;margin-bottom:7px;}
-  .cbuy{padding:8px;font-size:11px;}
-  .ccat-badge{font-size:9px;}
-  .limg,.lnoimg{width:68px;height:68px;}
-  .lname{font-size:13px;}
-  .pb{min-width:32px;height:32px;font-size:12px;}
-  .pagiwrap{gap:4px;}
-  .empty{padding:50px 12px;}
-  .empty-ic{font-size:46px;}
-  .empty h3{font-size:17px;}
-}
-</style>
-</head>
-<body>
-
-<!-- HEADER -->
-<header>
-  <div class="hi">
-    <a class="logo" href="index.html">
-      <div class="logo-ic">🛒</div>
-      <div class="logo-nm">Oni<em>Shop</em></div>
-    </a>
-    <div class="hsearch">
-      <span style="color:var(--t2);font-size:15px">🔍</span>
-      <input type="text" id="hsearch" placeholder="Tìm sản phẩm..." oninput="onSearch()">
+    <div class="hero">
+      <span class="hero-tag">🎉 Mua sắm thời trang & phụ kiện</span>
+      <h1>OniShop<em>Cuộc sống đúng cách</em></h1>
+      <p>Khám phá bộ sưu tập mới nhất của chúng tôi với giá tốt nhất</p>
     </div>
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tag">✨ OniShop</div>
-  <h1>Mua sắm<em>cùng Oni</em></h1>
-  <p>Những sản phẩm mình đang dùng và yêu thích — click để mua nhé!</p>
-</section>
-
-<!-- CATEGORY BAR -->
-<div class="cat-bar">
-  <div class="cat-inner" id="catBar">
-    <div class="cat-pill on" data-cat="">🛍️ Tất cả</div>
-    <div class="cat-pill" data-cat="quan-nam">👖 Quần Nam</div>
-    <div class="cat-pill" data-cat="quan-nu">👗 Quần Nữ</div>
-    <div class="cat-pill" data-cat="ao-nam">👔 Áo Nam</div>
-    <div class="cat-pill" data-cat="ao-nu">👚 Áo Nữ</div>
-    <div class="cat-pill" data-cat="giay">👟 Giày</div>
-    <div class="cat-pill" data-cat="dep">🩴 Dép</div>
-    <div class="cat-pill" data-cat="my-pham">💄 Mỹ phẩm</div>
-    <div class="cat-pill" data-cat="do-an-vat">🍿 Đồ ăn vặt</div>
-    <div class="cat-pill" data-cat="set">🎁 Set</div>
-    <div class="cat-pill" data-cat="chan-vay">👗 Chân váy</div>
-  </div>
-</div>
-
-<!-- SHOP -->
-<div class="wrap">
-  <div class="sbar">
-    <div class="rcnt" id="rcnt">Đang tải...</div>
-    <div class="sopts">
-      <select class="ssel" id="sortSel" onchange="applyAll()">
-        <option value="newest">Mới nhất</option>
-        <option value="az">Tên A → Z</option>
-        <option value="za">Tên Z → A</option>
-      </select>
-      <div class="vbtns">
-        <button class="vbtn on" id="vG" onclick="setView('grid')" title="Lưới">⊞</button>
-        <button class="vbtn"    id="vL" onclick="setView('list')"  title="Danh sách">≡</button>
+    <div class="cat-bar">
+      <div class="cat-inner">
+        <div class="cat-pill on" data-cat onclick="setActiveCat('')">✨ Tất
+          cả</div>
+        <div class="cat-pill" data-cat="do-nam"
+          onclick="setActiveCat('do-nam')">👔 Đồ nam</div>
+        <div class="cat-pill" data-cat="do-nu"
+          onclick="setActiveCat('do-nu')">👗 Đồ nữ</div>
+        <div class="cat-pill" data-cat="bach-hoa"
+          onclick="setActiveCat('bach-hoa')">🏪 Bách hóa</div>
+        <div class="cat-pill" data-cat="my-pham"
+          onclick="setActiveCat('my-pham')">💄 Mỹ phẩm</div>
+        <div class="cat-pill" data-cat="set" onclick="setActiveCat('set')">📦
+          Set</div>
+        <div class="cat-pill" data-cat="phu-kien"
+          onclick="setActiveCat('phu-kien')">✨ Phụ kiện</div>
+        <div class="cat-pill" data-cat="do-doi"
+          onclick="setActiveCat('do-doi')">💑 Đồ đôi</div>
       </div>
     </div>
-  </div>
 
-  <div id="products">
-    <div class="pgrid">
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
-      <div class="skel"><div class="skel-i"></div><div class="skel-b"><div class="skel-l"></div><div class="skel-l s"></div><div class="skel-n"></div></div></div>
+    <div class="wrap">
+      <div class="sbar">
+        <div class="rcnt">Có <strong id="rcnt">0</strong> sản phẩm</div>
+        <div class="sopts">
+          <select class="ssel" id="sortSelect" onchange="applyAll()">
+            <option value>Sắp xếp...</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+          </select>
+          <div class="vbtns">
+            <button class="vbtn on" id="vG" onclick="setView('grid')">⊞</button>
+            <button class="vbtn" id="vL" onclick="setView('list')">≡</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="products"></div>
+      <div id="pagiwrap" class="pagiwrap"></div>
     </div>
-  </div>
-  <div class="pagiwrap" id="pagiwrap"></div>
-</div>
 
-<footer>Được tuyển chọn bởi <strong>OniShop</strong> 🛒</footer>
-
-<!-- Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-import { getFirestore, collection, getDocs, query, orderBy }
-  from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
-
-const cfg = {
+    <script
+      src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script>
+// ─── FIREBASE CONFIG ───────────────────────
+const firebaseConfig = {
   apiKey: "AIzaSyDug7Sk2ubQcWqAEsiY1LxzRgm3w4Ng4Vs",
-  authDomain: "onishop.firebaseapp.com", projectId: "onishop",
+  authDomain: "onishop.firebaseapp.com",
+  projectId: "onishop",
   storageBucket: "onishop.firebasestorage.app",
   messagingSenderId: "219485776565",
   appId: "1:219485776565:web:78365146bea263d794ecfc"
 };
-const app = initializeApp(cfg);
-const db  = getFirestore(app);
 
-window._prods = [];
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-try {
-  const q    = query(collection(db,'products'), orderBy('createdAt','desc'));
-  const snap = await getDocs(q);
-  window._prods = snap.docs.map(d=>({id:d.id,...d.data()}));
-} catch {
-  try {
-    const snap = await getDocs(collection(db,'products'));
-    window._prods = snap.docs.map(d=>({id:d.id,...d.data()}));
-  } catch(e) { console.error('Firebase error:', e); window._prods = []; }
-}
-window.initShop();
-</script>
-
-<script>
+// ─── CATEGORIES ────────────────────────────
 const CATS = {
-  'quan-nam': ['👖','Quần Nam','b-quan-nam'],
-  'quan-nu':  ['👗','Quần Nữ','b-quan-nu'],
-  'ao-nam':   ['👔','Áo Nam','b-ao-nam'],
-  'ao-nu':    ['👚','Áo Nữ','b-ao-nu'],
-  'giay':     ['👟','Giày','b-giay'],
-  'dep':      ['🩴','Dép','b-dep'],
-  'my-pham':  ['💄','Mỹ phẩm','b-my-pham'],
-  'do-an-vat':['🍿','Đồ ăn vặt','b-do-an-vat'],
-  'set':      ['🎁','Set','b-set'],
-  'chan-vay': ['👗','Chân váy','b-chan-vay'],
+  'do-nam': ['👔', 'Nam', 'b-do-nam'],
+  'do-nu': ['👗', 'Nữ', 'b-do-nu'],
+  'bach-hoa': ['🏪', 'Bách hóa', 'b-bach-hoa'],
+  'my-pham': ['💄', 'Mỹ phẩm', 'b-my-pham'],
+  'set': ['📦', 'Set', 'b-set'],
+  'phu-kien': ['✨', 'Phụ kiện', 'b-phu-kien'],
+  'do-doi': ['💑', 'Đồ đôi', 'b-do-doi']
 };
 
-var all=[], filtered=[], pg=1, PER=20, view='grid', sq='', activeCat='';
+// ─── STATE ────────────────────────────────
+let all = [];
+let filtered = [];
+let sq = '', activeCat = '', sort = '', pg = 1;
+const PER = 12;
+let view = 'grid';
+let productsUnsub = null;
 
-function initShop() {
-  all = window._prods || [];
-  // Wire category pills
-  document.querySelectorAll('.cat-pill').forEach(el => {
-    el.addEventListener('click', () => {
-      document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('on'));
-      el.classList.add('on');
-      activeCat = el.dataset.cat;
-      pg = 1; applyAll();
-      // Scroll pill into view inside the bar (mobile swipe)
-      el.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-      // Scroll page to products
-      setTimeout(()=>document.querySelector('.wrap').scrollIntoView({behavior:'smooth', block:'start'}), 100);
-    });
+// ─── LOAD ─────────────────────────────────
+function load() {
+  if(productsUnsub) productsUnsub();
+
+  productsUnsub = db.collection('products').orderBy('createdAt', 'desc').onSnapshot(snap => {
+    all = snap.docs.map(d => ({
+      id: d.id,
+      name: d.data().name,
+      productCode: d.data().productCode,
+      category: d.data().category,
+      link: d.data().link,
+      image: d.data().image,
+      code: d.data().productCode // alias
+    }));
+    applyAll(false);
+  }, e => {
+    console.error('Load error:', e);
+    document.getElementById('products').innerHTML = `
+      <div class="empty">
+        <div class="empty-ic">⚠️</div>
+        <h3>Lỗi tải dữ liệu</h3>
+        <p>${e.message}</p>
+      </div>`;
   });
-  applyAll();
 }
-window.initShop = initShop;
 
-function onSearch() { sq = document.getElementById('hsearch').value.toLowerCase(); pg=1; applyAll(); }
-window.onSearch = onSearch;
-
-function applyAll() {
-  const sort = document.getElementById('sortSel').value;
+// ─── FILTER & SORT ────────────────────────
+function applyAll(resetPage = true) {
+  sq = document.getElementById('hsearch').value.toLowerCase();
+  sort = document.getElementById('sortSelect').value;
+  if(resetPage) pg = 1;
+  
   filtered = all.filter(p => {
-    const ms = !sq       || (p.name||'').toLowerCase().includes(sq);
+    const nameMatch = !sq || (p.name || '').toLowerCase().includes(sq);
+    const codeMatch = !sq || (p.code || '').includes(sq);
+    const ms = !sq || nameMatch || codeMatch;
     const mc = !activeCat || p.category === activeCat;
     return ms && mc;
   });
-  if(sort==='az') filtered.sort((a,b)=>(a.name||'').localeCompare(b.name||'','vi'));
-  else if(sort==='za') filtered.sort((a,b)=>(b.name||'').localeCompare(a.name||'','vi'));
+
+  if(sort === 'az') filtered.sort((a,b) => (a.name || '').localeCompare(b.name || '', 'vi'));
+  else if(sort === 'za') filtered.sort((a,b) => (b.name || '').localeCompare(a.name || '', 'vi'));
+
+  const pages = Math.max(1, Math.ceil(filtered.length / PER));
+  if(pg > pages) pg = pages;
+  
   render();
 }
-window.applyAll = applyAll;
 
+function setActiveCat(cat) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('on'));
+  document.querySelector(`[data-cat="${cat}"]`).classList.add('on');
+  applyAll();
+}
+
+// ─── RENDER ───────────────────────────────
 function render() {
   const total = filtered.length;
-  const slice = filtered.slice((pg-1)*PER, pg*PER);
-  const wrap  = document.getElementById('products');
+  const slice = filtered.slice((pg - 1) * PER, pg * PER);
+  const wrap = document.getElementById('products');
 
-  document.getElementById('rcnt').innerHTML = `<strong>${total}</strong> sản phẩm`;
+  document.getElementById('rcnt').innerHTML = `<strong>${total}</strong>`;
 
   if(!slice.length) {
     wrap.innerHTML = `
       <div class="empty">
         <div class="empty-ic">🔍</div>
         <h3>Không tìm thấy sản phẩm</h3>
-        <p>Thử danh mục khác hoặc từ khoá khác nhé</p>
+        <p>Thử danh mục khác hoặc từ khóa khác nhé</p>
         <button class="rst-btn" onclick="clearAll()">↩️ Xem tất cả</button>
       </div>`;
-    document.getElementById('pagiwrap').innerHTML='';
+    document.getElementById('pagiwrap').innerHTML = '';
     return;
   }
 
-  if(view==='grid') {
+  if(view === 'grid') {
     wrap.innerHTML = `<div class="pgrid">${slice.map(cGrid).join('')}</div>`;
   } else {
     wrap.innerHTML = `<div class="plist">${slice.map(cList).join('')}</div>`;
@@ -431,15 +365,16 @@ function catBadge(cat) {
 
 function cGrid(p) {
   return `
-    <div class="card" ${p.link?`onclick="window.open('${p.link}','_blank')"`:'style="cursor:default"'}>
+    <div class="card" ${p.link ? `onclick="window.open('${p.link}','_blank')"` : 'style="cursor:default"'}>
       <div class="cimg">
+        ${p.code ? `<div class="c-code">#${p.code}</div>` : ''}
         ${p.image
           ? `<img src="${p.image}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=cnoimg>🛍️</div>'">`
           : `<div class="cnoimg">🛍️</div>`}
       </div>
       <div class="cbody">
         ${catBadge(p.category)}
-        <div class="cname">${x(p.name||'Sản phẩm')}</div>
+        <div class="cname">${x(p.name || 'Sản phẩm')}</div>
         ${p.link
           ? `<a class="cbuy" href="${p.link}" target="_blank" onclick="event.stopPropagation()">🛒 Mua ngay</a>`
           : `<button class="cbuy" disabled style="opacity:.4;cursor:not-allowed">Chưa có link</button>`}
@@ -455,7 +390,8 @@ function cList(p) {
         : `<div class="lnoimg">🛍️</div>`}
       <div class="lbody">
         ${catBadge(p.category)}
-        <div class="lname">${x(p.name||'Sản phẩm')}</div>
+        <div class="lname">${x(p.name || 'Sản phẩm')}</div>
+        ${p.code ? `<div class="lcode">#${p.code}</div>` : ''}
         ${p.link
           ? `<a class="lbuy" href="${p.link}" target="_blank">🛒 Mua ngay</a>`
           : `<span style="font-size:12px;color:var(--t2)">Chưa có link</span>`}
@@ -464,71 +400,94 @@ function cList(p) {
 }
 
 function renderPagi(total) {
-  const pages = Math.ceil(total/PER), bar = document.getElementById('pagiwrap');
+  const pages = Math.ceil(total / PER), bar = document.getElementById('pagiwrap');
   bar.innerHTML = '';
-  if(pages<=1) return;
-  bar.appendChild(mkb('←',()=>{pg--;render();scrollTop()},pg===1));
-  const s=Math.max(1,pg-2), e=Math.min(pages,pg+2);
-  if(s>1){bar.appendChild(mkb(1,()=>{pg=1;render();scrollTop()}));if(s>2)bar.insertAdjacentHTML('beforeend','<span style="color:var(--t3);display:flex;align-items:center;padding:0 4px">…</span>');}
-  for(let i=s;i<=e;i++){const ii=i;const b=mkb(i,()=>{pg=ii;render();scrollTop()});if(i===pg)b.classList.add('on');bar.appendChild(b);}
-  if(e<pages){if(e<pages-1)bar.insertAdjacentHTML('beforeend','<span style="color:var(--t3);display:flex;align-items:center;padding:0 4px">…</span>');bar.appendChild(mkb(pages,()=>{pg=pages;render();scrollTop()}));}
-  bar.appendChild(mkb('→',()=>{pg++;render();scrollTop()},pg===pages));
+  if(pages <= 1) return;
+  
+  bar.appendChild(mkb('←', () => { pg--; render(); scrollTop(); }, pg === 1));
+  const s = Math.max(1, pg - 2), e = Math.min(pages, pg + 2);
+  if(s > 1) {
+    bar.appendChild(mkb(1, () => { pg = 1; render(); scrollTop(); }));
+    if(s > 2) bar.insertAdjacentHTML('beforeend', '<span style="color:var(--t3);display:flex;align-items:center;padding:0 4px">…</span>');
+  }
+  for(let i = s; i <= e; i++) {
+    const ii = i;
+    const b = mkb(i, () => { pg = ii; render(); scrollTop(); });
+    if(i === pg) b.classList.add('on');
+    bar.appendChild(b);
+  }
+  if(e < pages) {
+    if(e < pages - 1) bar.insertAdjacentHTML('beforeend', '<span style="color:var(--t3);display:flex;align-items:center;padding:0 4px">…</span>');
+    bar.appendChild(mkb(pages, () => { pg = pages; render(); scrollTop(); }));
+  }
+  bar.appendChild(mkb('→', () => { pg++; render(); scrollTop(); }, pg === pages));
 }
-function mkb(t,fn,dis=false){const b=document.createElement('button');b.className='pb';b.textContent=t;b.disabled=dis;b.onclick=fn;return b;}
-function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+function mkb(t, fn, dis = false) {
+  const b = document.createElement('button');
+  b.className = 'pb';
+  b.textContent = t;
+  b.disabled = dis;
+  b.onclick = fn;
+  return b;
+}
+
+function scrollTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 function setView(v) {
-  view=v;
-  document.getElementById('vG').classList.toggle('on',v==='grid');
-  document.getElementById('vL').classList.toggle('on',v==='list');
-  pg=1; render();
+  view = v;
+  document.getElementById('vG').classList.toggle('on', v === 'grid');
+  document.getElementById('vL').classList.toggle('on', v === 'list');
+  pg = 1;
+  render();
 }
-window.setView=setView;
 
 function clearAll() {
-  document.getElementById('hsearch').value='';
-  sq=''; activeCat=''; pg=1;
-  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('on'));
-  document.querySelector('.cat-pill[data-cat=""]').classList.add('on');
+  document.getElementById('hsearch').value = '';
+  sq = '';
+  activeCat = '';
+  pg = 1;
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('on'));
+  document.querySelector('[data-cat=""]').classList.add('on');
   applyAll();
 }
-window.clearAll=clearAll;
 
-function x(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function x(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
-// ── DRAG-TO-SCROLL category bar (mouse + touch) ──────────
-(function(){
+// ─── DRAG-TO-SCROLL category bar ──────────
+(function() {
   const bar = document.querySelector('.cat-bar');
   if(!bar) return;
 
-  let isDown = false;
-  let startX, scrollLeft;
-  let moved = false;        // track if actually dragged vs just tapped
+  let isDown = false, startX, scrollLeft, moved = false;
 
-  // ── MOUSE (desktop drag) ─────────────────
   bar.addEventListener('mousedown', e => {
-    isDown = true; moved = false;
+    isDown = true;
+    moved = false;
     bar.style.cursor = 'grabbing';
-    startX    = e.pageX - bar.offsetLeft;
+    startX = e.pageX - bar.offsetLeft;
     scrollLeft = bar.scrollLeft;
   });
   bar.addEventListener('mouseleave', () => { isDown = false; bar.style.cursor = 'grab'; });
-  bar.addEventListener('mouseup',    () => { isDown = false; bar.style.cursor = 'grab'; });
+  bar.addEventListener('mouseup', () => { isDown = false; bar.style.cursor = 'grab'; });
   bar.addEventListener('mousemove', e => {
     if(!isDown) return;
     e.preventDefault();
-    const x    = e.pageX - bar.offsetLeft;
+    const x = e.pageX - bar.offsetLeft;
     const walk = x - startX;
     if(Math.abs(walk) > 3) moved = true;
     bar.scrollLeft = scrollLeft - walk;
   });
 
-  // ── TOUCH (mobile swipe) ─────────────────
   let touchStartX = 0, touchScrollLeft = 0, touchMoved = false;
 
   bar.addEventListener('touchstart', e => {
-    touchMoved      = false;
-    touchStartX     = e.touches[0].pageX;
+    touchMoved = false;
+    touchStartX = e.touches[0].pageX;
     touchScrollLeft = bar.scrollLeft;
   }, { passive: true });
 
@@ -536,20 +495,27 @@ function x(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
     const dx = touchStartX - e.touches[0].pageX;
     if(Math.abs(dx) > 4) touchMoved = true;
     bar.scrollLeft = touchScrollLeft + dx;
-    // Only prevent default if horizontal movement > vertical
     const dy = Math.abs(e.touches[0].pageY - e.touches[0].screenY);
     if(Math.abs(dx) > dy) e.preventDefault();
   }, { passive: false });
 
-  // Prevent pill click firing if user was dragging
   bar.addEventListener('click', e => {
     if(touchMoved || moved) {
       e.stopPropagation();
       e.preventDefault();
-      touchMoved = false; moved = false;
+      touchMoved = false;
+      moved = false;
     }
   }, true);
 })();
-</script>
-</body>
+
+// ─── GLOBAL & INIT ────────────────────────
+window.applyAll = applyAll;
+window.setActiveCat = setActiveCat;
+window.setView = setView;
+window.clearAll = clearAll;
+
+load();
+    </script>
+  </body>
 </html>
