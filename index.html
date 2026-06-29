@@ -373,15 +373,30 @@ function load() {
 
 // ─── FILTER & SORT ────────────────────────
 function applyAll(resetPage = true) {
-  sq = document.getElementById('hsearch').value.toLowerCase();
+  let sq = document.getElementById('hsearch').value.toLowerCase().trim();
   sort = document.getElementById('sortSelect').value;
   if(resetPage) pg = 1;
   
+  // Xử lý tìm kiếm mã sản phẩm với #
+  let searchCode = null;
+  if(sq.startsWith('#')) {
+    searchCode = sq.substring(1); // Lấy phần sau #
+    sq = ''; // Xóa sq để chỉ tìm theo mã
+  }
+  
   filtered = all.filter(p => {
-    const nameMatch = !sq || (p.name || '').toLowerCase().includes(sq);
-    const codeMatch = !sq || (p.code || '').includes(sq);
-    const ms = !sq || nameMatch || codeMatch;
     const mc = !activeCat || p.category === activeCat;
+    
+    // Nếu tìm kiếm theo mã (#30)
+    if(searchCode) {
+      const codeMatch = (p.code || '') === searchCode;
+      return codeMatch && mc;
+    }
+    
+    // Tìm kiếm bình thường (tên hoặc mã)
+    const nameMatch = !sq || (p.name || '').toLowerCase().includes(sq);
+    const codeMatch = !sq || (p.code || '').toLowerCase().includes(sq);
+    const ms = !sq || nameMatch || codeMatch;
     return ms && mc;
   });
 
